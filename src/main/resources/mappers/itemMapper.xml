@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="itemMapper">
+
+	<!--			 master item 			-->
+	<insert id="insertms">
+
+	    INSERT INTO master(   	code
+	    						,sellers
+	    						,supplier
+	    						,ncode
+	    						,pname
+	    						,box
+	    						,par	)
+	    						
+	                  VALUES(     #{code}
+								, #{sellers}
+								, #{supplier}
+								, #{ncode}
+								, #{pname}
+								, #{box}
+								, #{par} );
+    	</insert>
+    	
+    	<select id="selectms" resultType="com.hs.vo.MasterVO">
+    		SELECT   num
+    				,code
+	    			,sellers
+	    			,supplier
+	    			,ncode
+	    			,pname
+	    			,box
+	    			,par
+		  FROM master
+		  ORDER BY num ASC
+    	</select>
+    	
+    <update id="minc">
+					ALTER TABLE master AUTO_INCREMENT=1;
+   	</update>
+    
+    <delete id="mdelete">
+    DELETE FROM master
+    </delete>
+    
+    
+    
+    <!-- 			aaitem			 -->
+    <insert id="insertaa">
+
+	    INSERT INTO aa(   		
+	    						 supplier
+	    						,ncode
+	    						,pname
+	    						,day1
+	    						,day2
+	    						,day3
+	    						,day4	)
+	    						
+	                  VALUES(     
+								 #{supplier}
+								, #{ncode}
+								, #{pname}
+								, #{day1}
+								, #{day2}
+								, #{day3}
+								, #{day4} );
+    	</insert>
+    	
+    	<select id="selectaa" resultType="com.hs.vo.AAVO">
+    		SELECT   num 
+    				,supplier
+	    			,ncode
+	    			,pname
+	    			,day1
+	    			,day2
+	    			,day3
+	    			,day4
+		  FROM aa
+		  ORDER BY num ASC
+    	</select>
+    
+    <update id="ainc">
+					ALTER TABLE aa AUTO_INCREMENT=1;
+   	</update>
+    
+    <delete id="adelete">
+    DELETE FROM aa
+    </delete>
+    
+<!--      <select id="calcu" resultType="com.hs.vo.CalVO'> -->
+<!--     	SELECT b.day1, b.day2, b.day3, a.box, a.par -->
+<!--     	FROM master a join aa b  -->
+<!--     	ON a.ncode = b.ncode -->
+<!--     </select> -->
+    
+</mapper>
