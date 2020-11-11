@@ -40,7 +40,7 @@ public class HomeController {
 		logger.info("홈");
 		
 		
-		return "home";
+		return "index";
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
