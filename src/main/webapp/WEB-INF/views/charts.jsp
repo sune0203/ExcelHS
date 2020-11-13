@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -69,10 +70,10 @@
                       <td><%=vo.getSupplier() %></td>
                       <td><%=vo.getNcode() %></td>
                       <td><%=vo.getPname() %></td>
-                      <td><%=vo.getDay1() %></td>
-                      <td><%=vo.getDay2() %></td>
-                      <td><%=vo.getDay3() %></td>
-                      <td><%=vo.getDay4() %></td>
+                      <td><fmt:formatNumber value="<%=vo.getDay1() %>" type="number" /></td>
+                      <td><fmt:formatNumber value="<%=vo.getDay2() %>" type="number" /></td>
+                      <td><fmt:formatNumber value="<%=vo.getDay3() %>" type="number" /></td>
+                      <td><fmt:formatNumber value="<%=vo.getDay4() %>" type="number" /></td>
                     </tr>
                     <%} %>
                   </tbody>

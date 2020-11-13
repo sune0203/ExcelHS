@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -69,7 +70,7 @@
                       <td><%=vo.getSupplier() %></td>
                       <td><%=vo.getNcode() %></td>
                       <td><%=vo.getPname() %></td>
-                      <td><%=vo.getBox() %></td>
+                      <td><fmt:formatNumber value="<%=vo.getBox() %>" type="number" /></td>
                       <td><%=vo.getPar() %></td>
                     </tr>
                     <%} %>
