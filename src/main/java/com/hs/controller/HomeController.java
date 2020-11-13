@@ -66,14 +66,41 @@ public class HomeController {
 		return "tables";
 	}
 	
-		@RequestMapping(value = "/resultchart", method = RequestMethod.GET)
-		public String resultchart() {
-			logger.info("최종 결과 차트");
+		@RequestMapping(value = "/1wchart", method = RequestMethod.GET)
+		public String owchart() {
+			logger.info("1주차 차트");
 			
 			
 			
-			return "resultchart";
-	}
+			return "1wchart";
+		}
+		
+		@RequestMapping(value = "/2wchart", method = RequestMethod.GET)
+		public String towchart() {
+			logger.info("2주차 차트");
+					
+					
+					
+					return "2wchart";
+		}
+		
+		@RequestMapping(value = "/3wchart", method = RequestMethod.GET)
+		public String thrwchart() {
+			logger.info("3주차 차트");
+					
+					
+					
+					return "3wchart";
+		}
+		
+		@RequestMapping(value = "/4wchart", method = RequestMethod.GET)
+		public String fowchart() {
+			logger.info("4주차 차트");
+					
+					
+					
+					return "4wchart";
+		}
 
 
 	

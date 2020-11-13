@@ -47,9 +47,27 @@
       
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="excel/resultchart">
+        <a class="nav-link" href="excel/1wchart">
           <i class="fas fa-fw fa-table"></i>
-          <span>최종 계산 차트</span></a>
+          <span>1주차</span></a>
+      </li>
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="excel/2wchart">
+          <i class="fas fa-fw fa-table"></i>
+          <span>2주차</span></a>
+      </li>
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="excel/3wchart">
+          <i class="fas fa-fw fa-table"></i>
+          <span>3주차</span></a>
+      </li>
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="excel/4wchart">
+          <i class="fas fa-fw fa-table"></i>
+          <span>4주차</span></a>
       </li>
 
       <!-- Divider -->

@@ -131,8 +131,8 @@ public class ExcelController {
 		 return "redirect:/charts";
 	 }
 	 
-	 @RequestMapping(value = "/resultchart", method = RequestMethod.GET)
-	 public String getresultchart(HttpServletRequest req) throws Exception {
+	 @RequestMapping(value = "/1wchart", method = RequestMethod.GET)
+	 public String get1wchart(HttpServletRequest req) throws Exception {
 		 List<AAVO> list  = service.selectaa();
 		 List<MasterVO> mlist  = service.selectms();
 		 
@@ -141,7 +141,43 @@ public class ExcelController {
 		 session.setAttribute("mlist", mlist);
 //		 System.out.println(list.get(0));
 		 
-		 return "redirect:/resultchart";
+		 return "redirect:/1wchart";
+	 }
+	 @RequestMapping(value = "/2wchart", method = RequestMethod.GET)
+	 public String get2wchart(HttpServletRequest req) throws Exception {
+		 List<AAVO> list  = service.selectaa();
+		 List<MasterVO> mlist  = service.selectms();
+		 
+		 HttpSession session = req.getSession();
+		 session.setAttribute("alist", list);
+		 session.setAttribute("mlist", mlist);
+//		 System.out.println(list.get(0));
+		 
+		 return "redirect:/2wchart";
+	 }
+	 @RequestMapping(value = "/3wchart", method = RequestMethod.GET)
+	 public String get3wchart(HttpServletRequest req) throws Exception {
+		 List<AAVO> list  = service.selectaa();
+		 List<MasterVO> mlist  = service.selectms();
+		 
+		 HttpSession session = req.getSession();
+		 session.setAttribute("alist", list);
+		 session.setAttribute("mlist", mlist);
+//		 System.out.println(list.get(0));
+		 
+		 return "redirect:/3wchart";
+	 }
+	 @RequestMapping(value = "/4wchart", method = RequestMethod.GET)
+	 public String get4wchart(HttpServletRequest req) throws Exception {
+		 List<AAVO> list  = service.selectaa();
+		 List<MasterVO> mlist  = service.selectms();
+		 
+		 HttpSession session = req.getSession();
+		 session.setAttribute("alist", list);
+		 session.setAttribute("mlist", mlist);
+//		 System.out.println(list.get(0));
+		 
+		 return "redirect:/4wchart";
 	 }
 	 
 		

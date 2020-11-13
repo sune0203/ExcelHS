@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -40,7 +41,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Result Excel DB</h1>
+          <h1 class="h3 mb-2 text-gray-800">2주차 결과</h1>
 
               <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -48,41 +49,39 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
+         <thead>
                     <tr>
-                      <th>번 호</th>
                       <th>업 체</th>
                       <th>품 번</th>
                       <th>품 명</th>
-                      <th>day 1</th>
-                      <th>day 2</th>
-                      <th>day 3</th>
-                      <th>day 4</th>
-                      <th>1PT당 수량</th>
+                      <th>발주 수량</th>
+                      <th>BOX 수량</th>
+                      <th>PT 수량</th>
                     </tr>
                   </thead>
                   <tbody>
                   <%List<AAVO> alist = (List<AAVO>)session.getAttribute("alist"); %>
-                  <%List<MasterVO> mlist = (List<MasterVO>)session.getAttribute("mlist"); %>
+                  <%List<MasterVO> mlist = (List<MasterVO>)session.getAttribute("mlist");
+		  			int a = 0; %>
                   <%for(AAVO vo : alist) {%>
                   		<%for(MasterVO mvo : mlist) { %>
-                  			<%if (vo.getNcode().equals(mvo.getNcode())) {%>
+                  			<%if (vo.getNcode().equals(mvo.getNcode()) & vo.getDay2()!=0 ) {%>
 			                    <tr>
-			                      <td><%=vo.getNum() %></td>
 			                      <td><%=vo.getSupplier() %></td>
 			                      <td><%=vo.getNcode() %></td>
 			                      <td><%=vo.getPname() %></td>
-			                      <td><%=(vo.getDay1()/mvo.getBox())%> PT | <%=(vo.getDay1()/mvo.getBox())*mvo.getPar()%> BOX</td>
-			                      <td><%=(vo.getDay2()/mvo.getBox())%> PT | <%=(vo.getDay2()/mvo.getBox())*mvo.getPar()%> BOX</td>
-			                      <td><%=(vo.getDay3()/mvo.getBox())%> PT | <%=(vo.getDay3()/mvo.getBox())*mvo.getPar()%> BOX</td>
-			                      <td><%=(vo.getDay4()/mvo.getBox())%> PT | <%=(vo.getDay4()/mvo.getBox())*mvo.getPar()%> BOX</td>
-			                      <td><%=mvo.getPar()%> BOX </td>
+			                      <td><fmt:formatNumber value="<%=vo.getDay2() %>" type="number" /></td>
+			                      <td><%=(vo.getDay2()/mvo.getBox())*mvo.getPar()%> BOX</td>
+			                      <td><%=(vo.getDay2()/mvo.getBox())%> PT</td>
+			                   	  <% a += (vo.getDay2()/mvo.getBox());%>
 			                    </tr>
-                    		<% continue; } %>                    	
+                    		<% continue; }%>
                     	<%} %>
-
-                    <%} %>
-                    
+	                    <%} %>
+	                    <tr>
+	                    	<td colspan="5"><center>합 계</center></td>
+	                    	<td><%=a %> PT</td>
+	                    </tr>
                   </tbody>
                 </table>
               </div>
